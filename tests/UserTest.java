@@ -10,11 +10,9 @@ public class UserTest {
     @Test
     public void isContainingNumberTest() {
         input = "Beata Schleisner-Petersen";
-        assertTrue(false, user.isContainingNumber(input));
-        assertFalse(true, user.isContainingNumber(input));
+        assertFalse(user.isContainingNumber(input));
 
         input = "830214-4785";
-        assertTrue(true, user.isContainingNumber(input));
-        assertFalse(false, user.isContainingNumber(input));
+        assertTrue(user.isContainingNumber(input));
     }
 }
