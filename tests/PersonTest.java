@@ -56,5 +56,5 @@ public class PersonTest {
         assertEquals(MemberType.STANDARD, person.getMemberType());
         assertNotEquals(MemberType.GOLD, person.getMemberType());
     }
-    
+
 }
