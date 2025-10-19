@@ -42,4 +42,18 @@ public class PersonTest {
         assertNotEquals(CustomerType.FORMER_CUSTOMER, person.getCustomerType());
     }
 
+    @Test
+    public void testGetAndSetMemberType() {
+        person.setMemberType(MemberType.GOLD);
+        assertEquals(MemberType.GOLD, person.getMemberType());
+        assertNotEquals(MemberType.PLATINUM, person.getMemberType());
+
+        person.setMemberType(MemberType.PLATINUM);
+        assertEquals(MemberType.PLATINUM, person.getMemberType());
+        assertNotEquals(MemberType.STANDARD, person.getMemberType());
+
+        person.setMemberType(MemberType.STANDARD);
+        assertEquals(MemberType.STANDARD, person.getMemberType());
+        assertNotEquals(MemberType.GOLD, person.getMemberType());
+    }
 }
