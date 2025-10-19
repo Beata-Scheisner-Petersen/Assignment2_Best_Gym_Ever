@@ -2,6 +2,7 @@ public class Person {
     private String name;
     private String personNumber;
     private CustomerType customerType;
+    private MemberType memberType;
 
     public String getName() {
         return name;
@@ -25,5 +26,13 @@ public class Person {
 
     public void setCustomerType(CustomerType customerType) {
         this.customerType = customerType;
+    }
+
+    public MemberType getMemberType() {
+        return memberType;
+    }
+
+    public void setMemberType(MemberType memberType) {
+        this.memberType = memberType;
     }
 }
