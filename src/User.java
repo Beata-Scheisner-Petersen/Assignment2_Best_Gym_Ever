@@ -7,8 +7,9 @@ public class User {
     }
 
     protected boolean isContainingInvalidCharacters(String input) {
-        Pattern patternForSpecialCharacters = Pattern.compile(".[!,.*+/|<>#¤%&=?@£${}_].");
+        Pattern patternForSpecialCharacters = Pattern.compile("[^a-ö0-9 -]", Pattern.CASE_INSENSITIVE);
         Matcher matcherForSpecialCharacters = patternForSpecialCharacters.matcher(input);
+        IO.println(matcherForSpecialCharacters.find());
         return matcherForSpecialCharacters.find();
     }
 }
