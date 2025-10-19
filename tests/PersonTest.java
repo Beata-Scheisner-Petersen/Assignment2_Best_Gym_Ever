@@ -15,4 +15,5 @@ public class PersonTest {
         assertEquals("Mia", person.getName());
         assertNotEquals("Karl", person.getName());
     }
+    
 }
