@@ -24,6 +24,7 @@ public class PersonTest {
 
         person.setPersonNumber("870614-1573");
         assertEquals("870614-1573", person.getPersonNumber());
-        assertEquals("570614-1573", person.getPersonNumber());
+        assertNotEquals("570614-1573", person.getPersonNumber());
     }
+
 }
