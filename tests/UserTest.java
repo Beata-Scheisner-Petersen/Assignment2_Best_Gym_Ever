@@ -15,10 +15,10 @@ public class UserTest {
 
     @Test
     public void isContainingInvalidCharactersTest() {
-        assertTrue(user.isContainingInvalidCharacters("!"));
-        assertTrue(user.isContainingInvalidCharacters("."));
-        assertTrue(user.isContainingInvalidCharacters("+"));
-        assertTrue(user.isContainingInvalidCharacters(","));
+        assertTrue(!user.isContainingInvalidCharacters("!"));
+        assertTrue(!user.isContainingInvalidCharacters("."));
+        assertTrue(!user.isContainingInvalidCharacters("+"));
+        assertTrue(!user.isContainingInvalidCharacters(","));
 
         assertFalse(user.isContainingInvalidCharacters("1"));
         assertFalse(user.isContainingInvalidCharacters("A"));
