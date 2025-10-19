@@ -15,5 +15,15 @@ public class PersonTest {
         assertEquals("Mia", person.getName());
         assertNotEquals("Karl", person.getName());
     }
-    
+
+    @Test
+    public void testSetAndGetPersonNumber() {
+        person.setPersonNumber("851020-6728");
+        assertEquals("851020-6728", person.getPersonNumber());
+        assertNotEquals("861020-6728", person.getPersonNumber());
+
+        person.setPersonNumber("870614-1573");
+        assertEquals("870614-1573", person.getPersonNumber());
+        assertEquals("570614-1573", person.getPersonNumber());
+    }
 }
