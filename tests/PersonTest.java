@@ -27,4 +27,21 @@ public class PersonTest {
         assertNotEquals("570614-1573", person.getPersonNumber());
     }
 
+    @Test
+    public void testGetAndSetCustomerType() {
+        CustomerType ct = new CustomerType();
+
+        person.setCustomerType(ct.CUSTOMER);
+        assertEquals(ct.CUstomer, person.getCustomerType());
+        assertNotEquals(ct.FORMER_CUSTOMER, person.getCustomerType());
+
+        person.setCustomerType(ct.FORMER_CUSTOMER);
+        assertEquals(ct.FORMER_CUSTOMER, person.getCustomerType());
+        assertNotEquals(ct.UNAUTHORIZED, person.getCustomerType());
+
+        person.setCustomerType(ct.UNAUTHORIZED);
+        assertEquals(ct.UNAUTHORIZED, person.getCustomerType());
+        assertNotEquals(ct.FORMER_CUSTOMER, person.getCustomerType());
+    }
+
 }
