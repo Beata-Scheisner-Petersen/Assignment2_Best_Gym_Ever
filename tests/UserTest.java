@@ -28,8 +28,9 @@ public class UserTest {
         assertFalse(user.isContainingInvalidCharacters("Über"));
         assertFalse(user.isContainingInvalidCharacters("abrâ"));
     }
+    @Test
     public void hyphenCounterTest() {
         assertEquals(1, user.hyphenCounter("860923-1258"));
-        assertNotEquals(1, user.hyphenCounter("860923-1258"));
+        assertNotEquals(0, user.hyphenCounter("860923-1258"));
     }
 }
