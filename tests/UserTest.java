@@ -5,14 +5,23 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class UserTest {
     User user = new User();
-    String input;
 
     @Test
     public void isContainingNumberTest() {
-        input = "Beata Schleisner-Petersen";
-        assertFalse(user.isContainingNumber(input));
+        assertFalse(user.isContainingNumber("Beata Schleisner-Petersen"));
 
-        input = "830214-4785";
-        assertTrue(user.isContainingNumber(input));
+        assertTrue(user.isContainingNumber("830214-4785"));
+    }
+
+    @Test
+    public void isContainingInvalidCharactersTest() {
+        assertTrue(user.isContainingInvalidCharacters("!"));
+        assertTrue(user.isContainingInvalidCharacters("."));
+        assertTrue(user.isContainingInvalidCharacters("+"));
+        assertTrue(user.isContainingInvalidCharacters(","));
+
+        assertFalse(user.isContainingInvalidCharacters("1"));
+        assertFalse(user.isContainingInvalidCharacters("A"));
+        assertFalse(user.isContainingInvalidCharacters("a"));
     }
 }
