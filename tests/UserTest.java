@@ -15,13 +15,18 @@ public class UserTest {
 
     @Test
     public void isContainingInvalidCharactersTest() {
-        assertTrue(!user.isContainingInvalidCharacters("!"));
+        assertFalse(user.isContainingInvalidCharacters("!"));
         assertTrue(!user.isContainingInvalidCharacters("."));
         assertTrue(!user.isContainingInvalidCharacters("+"));
         assertTrue(!user.isContainingInvalidCharacters(","));
+        assertTrue(!user.isContainingInvalidCharacters("^"));
 
-        assertFalse(user.isContainingInvalidCharacters("1"));
-        assertFalse(user.isContainingInvalidCharacters("A"));
-        assertFalse(user.isContainingInvalidCharacters("a"));
+        assertFalse(user.isContainingInvalidCharacters("1A"));
+        assertFalse(user.isContainingInvalidCharacters("Älva"));
+        assertFalse(user.isContainingInvalidCharacters("Schleisner-Petersen"));
+        assertFalse(user.isContainingInvalidCharacters("Èron"));
+        assertFalse(user.isContainingInvalidCharacters("Pokémon"));
+        assertFalse(user.isContainingInvalidCharacters("Über"));
+        assertFalse(user.isContainingInvalidCharacters("abrâ"));
     }
 }
