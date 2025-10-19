@@ -1,7 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class UserTest {
     User user = new User();
@@ -28,5 +27,9 @@ public class UserTest {
         assertFalse(user.isContainingInvalidCharacters("Pokémon"));
         assertFalse(user.isContainingInvalidCharacters("Über"));
         assertFalse(user.isContainingInvalidCharacters("abrâ"));
+    }
+    public void hyphenCounterTest() {
+        assertEquals(1, user.hyphenCounter("860923-1258"));
+        assertNotEquals(1, user.hyphenCounter("860923-1258"));
     }
 }
