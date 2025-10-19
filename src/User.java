@@ -12,4 +12,15 @@ public class User {
         IO.println(matcherForSpecialCharacters.find());
         return matcherForSpecialCharacters.find();
     }
+
+    protected int hyphenCounter(String input) {
+        int counter = 0;
+        String searchFor = "-";
+        for (int i = 0; i < input.length(); i++) {
+            if (searchFor.indexOf(input.charAt(i)) == 0) {
+                counter++;
+            }
+        }
+        return counter;
+    }
 }
