@@ -29,19 +29,17 @@ public class PersonTest {
 
     @Test
     public void testGetAndSetCustomerType() {
-        CustomerType ct = new CustomerType();
+        person.setCustomerType(CustomerType.CUSTOMER);
+        assertEquals(CustomerType.CUSTOMER, person.getCustomerType());
+        assertNotEquals(CustomerType.FORMER_CUSTOMER, person.getCustomerType());
 
-        person.setCustomerType(ct.CUSTOMER);
-        assertEquals(ct.CUstomer, person.getCustomerType());
-        assertNotEquals(ct.FORMER_CUSTOMER, person.getCustomerType());
+        person.setCustomerType(CustomerType.FORMER_CUSTOMER);
+        assertEquals(CustomerType.FORMER_CUSTOMER, person.getCustomerType());
+        assertNotEquals(CustomerType.UNAUTHORIZED, person.getCustomerType());
 
-        person.setCustomerType(ct.FORMER_CUSTOMER);
-        assertEquals(ct.FORMER_CUSTOMER, person.getCustomerType());
-        assertNotEquals(ct.UNAUTHORIZED, person.getCustomerType());
-
-        person.setCustomerType(ct.UNAUTHORIZED);
-        assertEquals(ct.UNAUTHORIZED, person.getCustomerType());
-        assertNotEquals(ct.FORMER_CUSTOMER, person.getCustomerType());
+        person.setCustomerType(CustomerType.UNAUTHORIZED);
+        assertEquals(CustomerType.UNAUTHORIZED, person.getCustomerType());
+        assertNotEquals(CustomerType.FORMER_CUSTOMER, person.getCustomerType());
     }
 
 }
