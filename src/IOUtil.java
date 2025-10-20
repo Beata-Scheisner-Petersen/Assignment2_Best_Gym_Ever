@@ -44,8 +44,4 @@ public class IOUtil {
         return checkValid;
     }
 
-    protected void InputFromUser() {
-        System.out.print("Enter the name or person number of the person: ");
-        input = IO.readln();
-    }
 }
