@@ -29,10 +29,9 @@ public class UserTest {
         assertFalse(user.isContainingInvalidCharacters("abrâ"));
     }
     @Test
-    public void hyphenCounterTest() {
-        assertEquals(1, user.isHyphenOnlyOneOf("860923-1258"));
-        assertNotEquals(0, user.isHyphenOnlyOneOf("860923-1258"));
-        assertNotEquals(1, user.isHyphenOnlyOneOf("860-23-1258"));
+    public void isHyphenOnlyOneOfTest() {
+        assertTrue(user.isHyphenOnlyOneOf("860923-1258"));
+        assertFalse(user.isHyphenOnlyOneOf("860-23-1258"));
     }
 
     @Test
