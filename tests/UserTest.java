@@ -63,4 +63,13 @@ public class UserTest {
     public void isHyphenOnRightPlaceTest() {
         assertTrue(user.isHyphenOnRightPlace("860923-1258"));
     }
+
+    @Test
+    public void isValidInputTest() {
+        assertTrue(user.isValidInput("Kim Hansén-Smith"));
+        assertTrue(user.isValidInput("860923-1258"));
+
+        assertFalse(user.isValidInput("K1m Hansén-Smith"));
+        assertTrue(user.isValidInput("860a23-1258"));
+    }
 }
