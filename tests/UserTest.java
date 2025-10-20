@@ -51,5 +51,11 @@ public class UserTest {
         assertFalse(user.personNrIsOnlyNumbers("860923-12f8"));
     }
 
+    @Test
+    public void isPersonNumberRightAmountNumbersTest() {
+        assertTrue(user.personNumberIsRightAmountNumbers("860923-1258"));
 
+        assertFalse(user.personNumberIsRightAmountNumbers("86092-1258"));
+        assertFalse(user.personNumberIsRightAmountNumbers("860923-125"));
+    }
 }
