@@ -51,4 +51,5 @@ public class UserTest {
         assertFalse(user.personNrIsOnlyNumbers("860923-12f8"));
     }
 
+
 }
