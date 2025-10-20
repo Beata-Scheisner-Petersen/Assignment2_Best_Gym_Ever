@@ -6,9 +6,9 @@ public class User {
         boolean isValid = false;
         if (isContainingInvalidCharacters(input)) {
             IO.println("Error: input contains invalid characters!");
-        } else if (isContainingNumber(input)) {
-            if ((isContainsHyphen(input) && isPersonNumberRightAmountNumbers(input) && isHyphenOnRightPlace(input))
-                    && isPersonNumberRightAmountNumbers(input)) {
+        } else if (isContainingNumber(input) && isContainsHyphen(input) && isHyphenOnRightPlace(input) && isHyphenOnlyOneOf(input)
+            && isPersonNumberRightAmountNumbers(input)) {
+            if (personNrIsOnlyNumbers(input)) {
                 isValid = true;
             }
         } else {
@@ -16,12 +16,6 @@ public class User {
         }
         return isValid;
     }
-
-    protected boolean isContainingNumber(String input) {
-        String containsNumber = "[0123456789]";
-        return containsNumber.indexOf(input.charAt(0)) >= 0;
-    }
-
     protected boolean isContainingInvalidCharacters(String input) {
         Pattern patternForSpecialCharacters = Pattern.compile("[^a-ö0-9 -]", Pattern.CASE_INSENSITIVE);
         Matcher matcherForSpecialCharacters = patternForSpecialCharacters.matcher(input);
@@ -29,7 +23,26 @@ public class User {
         return matcherForSpecialCharacters.find();
     }
 
-    protected int hyphenCounter(String input) {
+    protected boolean isContainingNumber(String input) {
+        String containsNumber = "[0123456789]";
+        return containsNumber.indexOf(input.charAt(0)) >= 0;
+    }
+    protected boolean isContainsHyphen(String input) {
+        return input.contains("-");
+    }
+    protected boolean isHyphenOnRightPlace(String input) {
+        int indexOfHyphen = 0;
+        String searchFor = "-";
+        for (int i = 0; i < input.length(); i++) {
+            if (searchFor.indexOf(input.charAt(i)) == 0) {
+                indexOfHyphen = i;
+                break;
+            }
+        }
+        return indexOfHyphen == 6;
+    }
+
+    protected boolean isHyphenOnlyOneOf(String input) {
         int counter = 0;
         String searchFor = "-";
         for (int i = 0; i < input.length(); i++) {
@@ -37,12 +50,13 @@ public class User {
                 counter++;
             }
         }
-        return counter;
+        return counter == 1;
     }
 
-    protected boolean isContainsHyphen(String input) {
-        return input.contains("-");
+    protected boolean isPersonNumberRightAmountNumbers(String input) {
+        return input.length() == 11;
     }
+
 
     protected boolean personNrIsOnlyNumbers(String input) {
         boolean onlyContainsNumbers = true;
@@ -56,22 +70,5 @@ public class User {
             onlyContainsNumbers = false;
         }
         return onlyContainsNumbers;
-    }
-
-    protected boolean isPersonNumberRightAmountNumbers(String input) {
-        int length = input.length();
-        return input.length() == 11;
-    }
-
-    protected boolean isHyphenOnRightPlace(String input) {
-        int indexOfHyphen = 0;
-        String searchFor = "-";
-        for (int i = 0; i < input.length(); i++) {
-            if (searchFor.indexOf(input.charAt(i)) == 0) {
-                indexOfHyphen = i;
-                break;
-            }
-        }
-        return indexOfHyphen == 6;
     }
 }
