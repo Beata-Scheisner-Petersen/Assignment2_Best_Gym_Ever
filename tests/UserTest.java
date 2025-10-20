@@ -43,4 +43,5 @@ public class UserTest {
         assertFalse(user.isContainsHyphen("860923 1258"));
         assertFalse(user.isContainsHyphen("860923.1258"));
     }
+
 }
