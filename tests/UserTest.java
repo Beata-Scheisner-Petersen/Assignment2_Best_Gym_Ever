@@ -65,6 +65,19 @@ public class UserTest {
     }
 
     @Test
+    public void isNameOnlyContainsLetterTest() {
+        assertTrue(user.isNameOnlyContainsLetter("Älva"));
+        assertTrue(user.isNameOnlyContainsLetter("Schleisner-Petersen"));
+        assertTrue(user.isNameOnlyContainsLetter("Èron"));
+        assertTrue(user.isNameOnlyContainsLetter("Pokémon"));
+        assertTrue(user.isNameOnlyContainsLetter("Über"));
+        assertTrue(user.isNameOnlyContainsLetter("abrâ"));
+
+        assertFalse(user.isNameOnlyContainsLetter("El1as"));
+        assertFalse(user.isNameOnlyContainsLetter("Elin Maz0r"));
+    }
+
+    @Test
     public void isValidInputTest() {
 //        assertTrue(user.isValidInput("Kim Hansén-Smith"));
         assertTrue(user.isValidInput("860923-1258"));
