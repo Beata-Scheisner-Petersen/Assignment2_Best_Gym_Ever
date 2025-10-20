@@ -23,4 +23,8 @@ public class User {
         }
         return counter;
     }
+
+    protected boolean isContainsHyphen(String input) {
+        return input.contains("-");
+    }
 }
