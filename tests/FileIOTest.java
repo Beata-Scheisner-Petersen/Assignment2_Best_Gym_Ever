@@ -12,8 +12,8 @@ public class FileIOTest {
 
     @Test
     public void checkIfContentIsCorrectTest() {
-        assertEquals("Fredrik Berggren", fileHandler.checkIfContentIsCorrect("Fredrik Berggren"));
-        assertEquals("Fredrik Berggren", fileHandler.checkIfContentIsCorrect("361026-1822"));
-        assertNotEquals("Fredrika Berggren", fileHandler.checkIfContentIsCorrect("Fredrik Berggren"));
+        assertTrue(fileHandler.checkIfContentIsCorrect(fileHandler.readFilePath, "Fredrik Berggren"));
+        assertTrue(fileHandler.checkIfContentIsCorrect(fileHandler.readFilePath, "540815-4382"));
+        assertFalse(fileHandler.checkIfContentIsCorrect(fileHandler.readFilePath, "Fredrika Berggren"));
     }
 }
