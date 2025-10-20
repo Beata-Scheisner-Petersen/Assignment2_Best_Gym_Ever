@@ -34,4 +34,13 @@ public class UserTest {
         assertNotEquals(0, user.hyphenCounter("860923-1258"));
         assertNotEquals(1, user.hyphenCounter("860-23-1258"));
     }
+
+    @Test
+    public void isContainsHyphenTest() {
+        assertTrue(user.isContainsHyphen("860923-1258"));
+
+        assertFalse(user.isContainsHyphen("8609231258"));
+        assertFalse(user.isContainsHyphen("860923 1258"));
+        assertFalse(user.isContainsHyphen("860923.1258"));
+    }
 }
