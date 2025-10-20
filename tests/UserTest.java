@@ -44,4 +44,11 @@ public class UserTest {
         assertFalse(user.isContainsHyphen("860923.1258"));
     }
 
+    @Test
+    public void personNrIsOnlyNumbersTest() {
+        assertTrue(user.personNrIsOnlyNumbers("860923-1258"));
+        assertFalse(user.personNrIsOnlyNumbers("860a23-1258"));
+        assertFalse(user.personNrIsOnlyNumbers("860923-12f8"));
+    }
+
 }
