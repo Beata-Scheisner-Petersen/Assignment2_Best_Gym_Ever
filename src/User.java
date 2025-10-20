@@ -71,4 +71,10 @@ public class User {
         }
         return onlyContainsNumbers;
     }
+
+    protected boolean isNameOnlyContainsLetter(String input) {
+        Pattern isNotLetterPattern = Pattern.compile("[^a-ö]", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = isNotLetterPattern.matcher(input);
+        return matcher.find();
+    }
 }
