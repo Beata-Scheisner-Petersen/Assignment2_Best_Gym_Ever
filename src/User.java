@@ -46,4 +46,16 @@ public class User {
         int length = input.length();
         return input.length() == 11;
     }
+
+    protected boolean isHyphenOnRightPlace(String input) {
+        int indexOfHyphen = 0;
+        String searchFor = "-";
+        for (int i = 0; i < input.length(); i++) {
+            if (searchFor.indexOf(input.charAt(i)) == 0) {
+                indexOfHyphen = i;
+                break;
+            }
+        }
+        return indexOfHyphen == 6;
+    }
 }
