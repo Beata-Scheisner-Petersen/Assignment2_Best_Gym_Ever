@@ -1,6 +1,15 @@
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class User {
+    private String input;
+
+    public String getInput() {
+        return input;
+    }
+
+    public void setInput(String input) {
+        this.input = input;
+    }
 
     public boolean isValidInput(String input) {
         boolean isValid = false;
@@ -73,4 +82,5 @@ public class User {
         Matcher matcher = isNotLetterPattern.matcher(input);
         return !matcher.find();
     }
+
 }
