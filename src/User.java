@@ -39,7 +39,11 @@ public class User {
         if (matcherSub1.find() || matcherSub2.find()) {
             onlyContainsNumbers = false;
         }
-
         return onlyContainsNumbers;
+    }
+
+    protected boolean isPersonNumberRightAmountNumbers(String input) {
+        int length = input.length();
+        return input.length() == 11;
     }
 }
