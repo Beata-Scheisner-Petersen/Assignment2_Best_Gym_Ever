@@ -12,7 +12,9 @@ public class User {
                 isValid = true;
             }
         } else {
-            //
+            if (isNameOnlyContainsLetter(input)) {
+                isValid = true;
+            }
         }
         return isValid;
     }
