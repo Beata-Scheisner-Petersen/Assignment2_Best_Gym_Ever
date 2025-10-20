@@ -32,5 +32,6 @@ public class UserTest {
     public void hyphenCounterTest() {
         assertEquals(1, user.hyphenCounter("860923-1258"));
         assertNotEquals(0, user.hyphenCounter("860923-1258"));
+        assertNotEquals(1, user.hyphenCounter("860-23-1258"));
     }
 }
