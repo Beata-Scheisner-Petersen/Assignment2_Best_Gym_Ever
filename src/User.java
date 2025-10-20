@@ -6,13 +6,13 @@ public class User {
         boolean isValid = false;
         if (isContainingInvalidCharacters(input)) {
             IO.println("Error: input contains invalid characters!");
-        } else if (isContainingNumber(input) && isContainsHyphen(input) && isHyphenOnRightPlace(input) && isHyphenOnlyOneOf(input)
+        } else if ((isContainingNumber(input)) && isContainsHyphen(input) && isHyphenOnRightPlace(input) && isHyphenOnlyOneOf(input)
             && isPersonNumberRightAmountNumbers(input)) {
             if (personNrIsOnlyNumbers(input)) {
                 isValid = true;
             }
         } else {
-            // then letters
+            //
         }
         return isValid;
     }
