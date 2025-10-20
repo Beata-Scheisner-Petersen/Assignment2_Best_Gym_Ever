@@ -30,9 +30,9 @@ public class UserTest {
     }
     @Test
     public void hyphenCounterTest() {
-        assertEquals(1, user.hyphenCounter("860923-1258"));
-        assertNotEquals(0, user.hyphenCounter("860923-1258"));
-        assertNotEquals(1, user.hyphenCounter("860-23-1258"));
+        assertEquals(1, user.isHyphenOnlyOneOf("860923-1258"));
+        assertNotEquals(0, user.isHyphenOnlyOneOf("860923-1258"));
+        assertNotEquals(1, user.isHyphenOnlyOneOf("860-23-1258"));
     }
 
     @Test
