@@ -2,8 +2,9 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-public class FileIO {
+public class IOUtil {
     protected String readFilePath = "gym_medlemmar.txt";
+    String input;
 
     protected boolean checkReadFilePath(String readFilePath) {
         boolean pathValid = false;
@@ -41,5 +42,10 @@ public class FileIO {
             e.printStackTrace();
         }
         return checkValid;
+    }
+
+    protected void InputFromUser() {
+        System.out.print("Enter the name or person number of the person: ");
+        input = IO.readln();
     }
 }

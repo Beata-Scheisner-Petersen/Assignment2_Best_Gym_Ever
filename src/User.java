@@ -24,7 +24,6 @@ public class User {
         IO.println(matcherForSpecialCharacters.find());
         return matcherForSpecialCharacters.find();
     }
-
     protected boolean isContainingNumber(String input) {
         String containsNumber = "[0123456789]";
         return containsNumber.indexOf(input.charAt(0)) >= 0;
@@ -43,7 +42,6 @@ public class User {
         }
         return indexOfHyphen == 6;
     }
-
     protected boolean isHyphenOnlyOneOf(String input) {
         int counter = 0;
         String searchFor = "-";
@@ -54,12 +52,9 @@ public class User {
         }
         return counter == 1;
     }
-
     protected boolean isPersonNumberRightAmountNumbers(String input) {
         return input.length() == 11;
     }
-
-
     protected boolean personNrIsOnlyNumbers(String input) {
         boolean onlyContainsNumbers = true;
         Pattern patternForNotNumbers = Pattern.compile("[^0-9]");
@@ -73,7 +68,6 @@ public class User {
         }
         return onlyContainsNumbers;
     }
-
     protected boolean isNameOnlyContainsLetter(String input) {
         Pattern isNotLetterPattern = Pattern.compile("[^a-ö -]", Pattern.CASE_INSENSITIVE);
         Matcher matcher = isNotLetterPattern.matcher(input);

@@ -1,8 +1,9 @@
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-public class FileIOTest {
-    FileIO fileHandler = new FileIO();
+public class IOUtilTest {
+    IOUtil fileHandler = new IOUtil();
+    User user = new User();
 
     @Test
     public void checkReadFilePathTest() {
