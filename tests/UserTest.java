@@ -58,4 +58,9 @@ public class UserTest {
         assertFalse(user.isPersonNumberRightAmountNumbers("86092-1258"));
         assertFalse(user.isPersonNumberRightAmountNumbers("860923-125"));
     }
+
+    @Test
+    public void isHyphenOnRightPlaceTest() {
+        assertTrue(user.isHyphenOnRightPlace("860923-1258"));
+    }
 }
