@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 public class InputOutputHandler {
     private String readFilePath = "gym_medlemmar.txt";
-    private Person person = new Person();
     private List<String> findPersonList;
 
     public List<String> getFindPersonList() {
