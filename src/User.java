@@ -3,14 +3,6 @@ import java.util.regex.Pattern;
 public class User {
     private String input;
 
-    public String getInput() {
-        return input;
-    }
-
-    public void setInput(String input) {
-        this.input = input;
-    }
-
     public boolean isValidInput(String input) {
         boolean isValid = false;
         if (isContainingInvalidCharacters(input)) {
@@ -19,10 +11,14 @@ public class User {
             && isPersonNumberRightAmountNumbers(input)) {
             if (personNrIsOnlyNumbers(input)) {
                 isValid = true;
+            } else {
+                IO.println("person number contain things that is not number or -");
             }
         } else {
             if (isNameOnlyContainsLetter(input)) {
                 isValid = true;
+            } else {
+                IO.println("Error: name contains something it shouldn't");
             }
         }
         return isValid;
@@ -30,7 +26,6 @@ public class User {
     protected boolean isContainingInvalidCharacters(String input) {
         Pattern patternForSpecialCharacters = Pattern.compile("[^a-ö0-9 -]", Pattern.CASE_INSENSITIVE);
         Matcher matcherForSpecialCharacters = patternForSpecialCharacters.matcher(input);
-        IO.println(matcherForSpecialCharacters.find());
         return matcherForSpecialCharacters.find();
     }
     protected boolean isContainingNumber(String input) {
