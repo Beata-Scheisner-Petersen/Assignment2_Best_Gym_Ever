@@ -1,7 +1,7 @@
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class User {
-    private String input;
+    private InputOutputHandler ioh = new InputOutputHandler();
 
     public boolean isValidInput(String input) {
         boolean isValid = false;
@@ -77,5 +77,4 @@ public class User {
         Matcher matcher = isNotLetterPattern.matcher(input);
         return !matcher.find();
     }
-
 }
