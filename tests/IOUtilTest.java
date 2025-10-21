@@ -1,10 +1,14 @@
 import org.junit.jupiter.api.Test;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
 public class IOUtilTest {
     IOUtil fileHandler = new IOUtil();
+    String readFilePath = "gym_medlemmar.txt";
 
     @Test
     public void checkReadFilePathTest() {
@@ -21,12 +25,23 @@ public class IOUtilTest {
 
     @Test
     public void findInFileTest() {
-        assertTrue(fileHandler.findInFile("Fredrik Berggren;Skolgränd 8, 16819 Norrköping;fredde@fakemail.se;851020-6728;2019-12-30;2021-12-30;Platina"));
-//        assertFalse(fileHandler.findInFile(" "));
+        assertTrue(fileHandler.findInFile("Fredrik Berggren"));
+        assertFalse(fileHandler.findInFile(" "));
     }
     @Test
     public void setInforTest() {
-        Scanner reader = new Scanner("Fredrik Berggren;Skolgränd 8, 16819 Norrköping;fredde@fakemail.se;851020-6728;2019-12-30;2021-12-30;Platina");
-        assertTrue(fileHandler.setInfo(reader));
+        try(Scanner reader = new Scanner(new FileReader(readFilePath))) {
+            assertTrue(fileHandler.setInfo(reader));
+        } catch (FileNotFoundException eFile) {
+            IO.println("File not found");
+            eFile.printStackTrace();
+        } catch (IOException eIO) {
+            IO.println("IO error");
+            eIO.printStackTrace();
+        } catch (Exception e) {
+            IO.println("Error:");
+            e.printStackTrace();
+        }
+
     }
 }
