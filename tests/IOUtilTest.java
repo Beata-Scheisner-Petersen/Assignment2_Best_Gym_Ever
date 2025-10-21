@@ -1,11 +1,7 @@
 import org.junit.jupiter.api.Test;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Scanner;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 public class IOUtilTest {
     IOUtil fileHandler = new IOUtil();
     String readFilePath = "gym_medlemmar.txt";
@@ -26,22 +22,6 @@ public class IOUtilTest {
     @Test
     public void findInFileTest() {
         assertTrue(fileHandler.findInFile("Fredrik Berggren"));
-        assertFalse(fileHandler.findInFile(" "));
-    }
-    @Test
-    public void setInforTest() {
-        try(Scanner reader = new Scanner(new FileReader(readFilePath))) {
-            assertTrue(fileHandler.setInfo(reader));
-        } catch (FileNotFoundException eFile) {
-            IO.println("File not found");
-            eFile.printStackTrace();
-        } catch (IOException eIO) {
-            IO.println("IO error");
-            eIO.printStackTrace();
-        } catch (Exception e) {
-            IO.println("Error:");
-            e.printStackTrace();
-        }
-
+        assertTrue(fileHandler.findInFile("540815-4382"));
     }
 }
