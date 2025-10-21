@@ -1,8 +1,12 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Scanner;
 public class IOUtil {
     protected String readFilePath = "gym_medlemmar.txt";
-    private User user = new User();
+    private Person person = new Person();
 
     protected boolean checkReadFilePath(String readFilePath) {
         boolean pathValid = false;
@@ -42,29 +46,37 @@ public class IOUtil {
         return checkValid;
     }
 
-    public void findInFile() {
-        user.userInput();
-        if (checkReadFilePath(readFilePath) && checkIfContentIsCorrect(readFilePath, user.getInput())) {
-            String temp;
-            try(Scanner scan = new Scanner(new FileReader(readFilePath))) {
-                scan.useDelimiter(";");
-                while (scan.hasNext()) {
-                    scan.skip("Namn;Adress;Mailadress;Personnummer;Datum_köpt_gymmedlemskap;Datum_senast_uppdaterad;Medlemsnivå");
-                    temp = scan.next();
-                    if (temp.contains(user.getInput())) {
-                        System.out.println(scan.next());
-                    }
+    protected boolean findInFile(String input) {
+        boolean findResult = false;
+        if (checkReadFilePath(readFilePath) && checkIfContentIsCorrect(readFilePath, input)) {
+            try(Scanner reader = new Scanner(new FileReader(readFilePath))) {
+                reader.skip("Namn;Adress;Mailadress;Personnummer;Datum_köpt_gymmedlemskap;Datum_senast_uppdaterad;Medlemsnivå");
+                reader.useDelimiter(";");
+                person.setName(reader.next());
+                person.setAdress(reader.next());
+                person.setMailadress(reader.next());
+                person.setPersonNumber(reader.next());
+                person.setDateStarted(LocalDate.parse(reader.next()));
+                person.setLatestBoughtMembership(LocalDate.parse(reader.next()));
+                String temp = reader.next();
+                if (temp.contains("Platina")) {
+                    person.setMemberType(MemberType.PLATINUM);
+                } else if (temp.contains("Guld")) {
+                    person.setMemberType(MemberType.GOLD);
+                } else if (temp.contains("Standard")) {
+                    person.setMemberType(MemberType.STANDARD);
+                    findResult = true;
+                } else {
+                    IO.println("Sorry error occurred couldn't get data");
                 }
-            } catch (FileNotFoundException eFile) {
-                IO.println("Error: file not found");
-            } catch (IOException eIO) {
-                IO.println("IO Error:");
-                eIO.printStackTrace();
             } catch (Exception e) {
                 IO.println("Error:");
                 e.printStackTrace();
             }
+        } else {
+            IO.println("Something went wrong when trying to read the file");
         }
-    }
 
+        return findResult;
+    }
 }
