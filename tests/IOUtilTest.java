@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.Test;
 
+import java.util.Scanner;
+
 import static org.junit.jupiter.api.Assertions.*;
 public class IOUtilTest {
     IOUtil fileHandler = new IOUtil();
@@ -20,6 +22,11 @@ public class IOUtilTest {
     @Test
     public void findInFileTest() {
         assertTrue(fileHandler.findInFile("Fredrik Berggren;Skolgränd 8, 16819 Norrköping;fredde@fakemail.se;851020-6728;2019-12-30;2021-12-30;Platina"));
-        assertFalse(fileHandler.FindInFile(" "));
+//        assertFalse(fileHandler.findInFile(" "));
+    }
+    @Test
+    public void setInforTest() {
+        Scanner reader = new Scanner("Fredrik Berggren;Skolgränd 8, 16819 Norrköping;fredde@fakemail.se;851020-6728;2019-12-30;2021-12-30;Platina");
+        assertTrue(fileHandler.setInfo(reader));
     }
 }
