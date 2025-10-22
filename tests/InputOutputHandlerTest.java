@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class InputOutputHandlerTest {
     InputOutputHandler ioh = new InputOutputHandler();
     String readFilePath = "gym_medlemmar.txt";
+    String writeFilePath = "PTFile.txt";
 
     @Test
     public void checkReadFilePathTest() {
@@ -46,8 +47,10 @@ public class InputOutputHandlerTest {
        assertNotEquals("former customer", ioh.getCustomerType(0));
     }
     @Test
-    public void printToFileTest() {
+    public String printToFileTest() {
         ioh.findInFile("Pia Johansson");
         assertEquals("Pia Johansson;361026-1822;" + LocalDate.now(), ioh.printToFile());
+        ioh.findInFile("680127-2300");
+        assertEquals("Maria Lindström;680127-2300;" + LocalDate.now(), ioh.printToFile());
     }
 }
