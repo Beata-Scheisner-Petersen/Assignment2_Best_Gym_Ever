@@ -61,9 +61,9 @@ public class InputOutputHandler {
     }
     protected String getCustomerType(int timeDifference) {
         if (timeDifference == 0) {
-            return "customer";
+            return "customer\n";
         } else {
-            return "former customer";
+            return "former customer\n";
         }
     }
     @SuppressWarnings("StringBufferReplaceableByString")
