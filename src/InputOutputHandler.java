@@ -2,6 +2,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 public class InputOutputHandler {
@@ -75,5 +77,11 @@ public class InputOutputHandler {
             IO.println("Something went wrong when trying to read the file");
         }
         return findResult;
+    }
+
+    protected int timeDiff() {
+        LocalDate boughtMembershipDate = LocalDate.parse(findPersonList.get(5));
+        int timeDifference = Period.between(boughtMembershipDate, LocalDate.now()).getYears();
+        return timeDifference;
     }
 }
