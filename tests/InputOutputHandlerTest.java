@@ -53,4 +53,9 @@ public class InputOutputHandlerTest {
         ioh.findInFile("680127-2300");
         assertEquals("Maria Lindström;680127-2300;" + LocalDate.now(), ioh.printToFile());
     }
+
+    @Test
+    public void checkIfPathExistTest() {
+        assertTrue(ioh.checkifPathExist());
+    }
 }
