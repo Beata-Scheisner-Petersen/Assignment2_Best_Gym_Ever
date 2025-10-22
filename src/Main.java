@@ -18,6 +18,12 @@ void main() {
    if ((!temp.equals("q")) && ioh.findInFile(input)) {
        // Todo
        // Få ut medlemstyp
+       String customerType = ioh.getCustomerType(ioh.timeDiff());
+       if (customerType.equals("customer")) {
+           //
+       } else {
+           //
+       }
        //skriva till fil
        // skriva ut
    } else {
