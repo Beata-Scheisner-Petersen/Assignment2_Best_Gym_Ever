@@ -10,10 +10,9 @@ public class InputOutputHandler {
     private String writeToFile = "PTFile.txt";
     private List<String> findPersonList;
 
-    public List<String> getFindPersonList() {
+    public List<String> getMemberInfo() {
         return findPersonList;
     }
-
     protected boolean checkReadFilePath(String readFilePath) {
         boolean pathValid = false;
         try(BufferedReader br = new BufferedReader(new FileReader(readFilePath))) {
@@ -29,7 +28,6 @@ public class InputOutputHandler {
         }
         return pathValid;
     }
-
     protected boolean findInFile(String input) {
         boolean findResult = false;
         String fromFile;
@@ -56,13 +54,11 @@ public class InputOutputHandler {
         }
         return findResult;
     }
-
     protected int timeDiff() {
         LocalDate boughtMembershipDate = LocalDate.parse(findPersonList.get(5));
         int timeDifference = Period.between(boughtMembershipDate, LocalDate.now()).getYears();
         return timeDifference;
     }
-
     protected String getCustomerType(int timeDifference) {
         if (timeDifference == 0) {
             return "customer";
@@ -70,7 +66,6 @@ public class InputOutputHandler {
             return "former customer";
         }
     }
-
     @SuppressWarnings("StringBufferReplaceableByString")
     protected String textToFile() {
         StringBuilder builder = new StringBuilder();
@@ -97,7 +92,6 @@ public class InputOutputHandler {
         }
         return filePathExist;
     }
-
     protected boolean didItWriteToFile() {
         boolean writingSuccess = false;
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(writeToFile, true))) {
@@ -117,5 +111,12 @@ public class InputOutputHandler {
         }
 
         return writingSuccess;
+    }
+    protected String print() {
+        return String.format("""
+                Name: %s
+                CustomerType: %s
+                MemberType: %s \n
+                """, getMemberInfo().get(0), getCustomerType(timeDiff()), getMemberInfo().get(6));
     }
 }
