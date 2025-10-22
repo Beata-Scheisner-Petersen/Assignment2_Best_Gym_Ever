@@ -62,9 +62,9 @@ public class InputOutputHandlerTest {
     @Test
     public void didItWriteToFileTest() {
         ioh.findInFile("Pia Johansson");
-        assertTrue(ioh.didItWroteToFile());
+        assertTrue(ioh.didItWriteToFile());
 
         ioh.findInFile("680127-2300");
-        assertTrue(ioh.didItWroteToFile());
+        assertTrue(ioh.didItWriteToFile());
     }
 }
