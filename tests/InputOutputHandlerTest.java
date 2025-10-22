@@ -49,9 +49,9 @@ public class InputOutputHandlerTest {
     @Test
     public void textToFileTest() {
         ioh.findInFile("Pia Johansson");
-        assertEquals("Pia Johansson;361026-1822;" + LocalDate.now(), ioh.printToFile());
+        assertEquals("Pia Johansson;361026-1822;" + LocalDate.now(), ioh.textToFile());
         ioh.findInFile("680127-2300");
-        assertEquals("Maria Lindström;680127-2300;" + LocalDate.now(), ioh.printToFile());
+        assertEquals("Maria Lindström;680127-2300;" + LocalDate.now(), ioh.textToFile());
     }
 
     @Test
