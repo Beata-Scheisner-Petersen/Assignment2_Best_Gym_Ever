@@ -47,6 +47,8 @@ public class InputOutputHandlerTest {
     }
     @Test
     public void getCustomerTypeTest() {
-       assertTrue(ioh.getCustomer(2), "former customer");
+       assertEquals("former customer", ioh.getCustomerType(2));
+       assertEquals("customer", ioh.getCustomerType(0));
+       assertNotEquals("former customer", ioh.getCustomerType(0));
     }
 }
