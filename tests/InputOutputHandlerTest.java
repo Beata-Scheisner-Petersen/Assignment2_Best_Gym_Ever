@@ -47,7 +47,7 @@ public class InputOutputHandlerTest {
        assertNotEquals("former customer", ioh.getCustomerType(0));
     }
     @Test
-    public String printToFileTest() {
+    public void textToFileTest() {
         ioh.findInFile("Pia Johansson");
         assertEquals("Pia Johansson;361026-1822;" + LocalDate.now(), ioh.printToFile());
         ioh.findInFile("680127-2300");
