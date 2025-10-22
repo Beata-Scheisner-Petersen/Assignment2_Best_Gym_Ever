@@ -56,6 +56,6 @@ public class InputOutputHandlerTest {
 
     @Test
     public void checkIfPathExistTest() {
-        assertTrue(ioh.checkifPathExist());
+        assertTrue(ioh.checkIfPathExist());
     }
 }
