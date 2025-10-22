@@ -1,4 +1,6 @@
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
@@ -87,5 +89,23 @@ public class InputOutputHandler {
             e.printStackTrace();
         }
         return builder.toString();
+    }
+    protected boolean checkIfPathExist() {
+        boolean filePathExist = false;
+        if (Files.exists(Path.of(writeToFile))) {
+            filePathExist = true;
+        } else {
+            try {
+                Files.createFile(Path.of(writeToFile));
+                filePathExist = true;
+            } catch (IOException eIO) {
+                IO.println("IO error:");
+                eIO.printStackTrace();
+            } catch (Exception e) {
+                IO.println("Error:");
+                e.printStackTrace();
+            }
+        }
+        return filePathExist;
     }
 }
