@@ -45,4 +45,9 @@ public class InputOutputHandlerTest {
        assertEquals("customer", ioh.getCustomerType(0));
        assertNotEquals("former customer", ioh.getCustomerType(0));
     }
+    @Test
+    public void printToFileTest() {
+        assertEquals("Pia Johansson;361026-18822;" + LocalDate.now(), ioh.PrintToFile("Pia Johansson"));
+        //namn persNr och Datum
+    }
 }
