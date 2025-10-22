@@ -47,8 +47,6 @@ public class InputOutputHandlerTest {
     }
     @Test
     public void getCustomerTypeTest() {
-        ioh.findInFile("Fredrik Berggren");
-       int diff = ioh.timeDiff();
-       assertEquals("former customer", ioh.getCustomerType());
+       assertTrue(ioh.getCustomer(2), "former customer");
     }
 }
