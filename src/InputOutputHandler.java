@@ -1,13 +1,11 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 public class InputOutputHandler {
     private String readFilePath = "gym_medlemmar.txt";
+    private String writeToFile = "PTFile.txt";
     private List<String> findPersonList;
 
     public List<String> getFindPersonList() {
@@ -77,6 +75,17 @@ public class InputOutputHandler {
         builder.append(findPersonList.get(0)).append(";");
         builder.append(findPersonList.get(3)).append(";");
         builder.append(LocalDate.now());
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(writeToFile))) {
+            //
+        } catch (FileNotFoundException eFile) {
+            IO.println("File not found");
+        } catch (IOException eIO) {
+            IO.println("Error: IO");
+            eIO.printStackTrace();
+        } catch (Exception e) {
+            IO.println("Error:");
+            e.printStackTrace();
+        }
         return builder.toString();
     }
 }
