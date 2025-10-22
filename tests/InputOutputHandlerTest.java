@@ -58,4 +58,9 @@ public class InputOutputHandlerTest {
     public void checkIfPathExistTest() {
         assertTrue(ioh.checkIfPathExist());
     }
+
+    @Test
+    public void didItWroteToFileTest() {
+        assertTrue(ioh.didItWroteToFile());
+    }
 }
