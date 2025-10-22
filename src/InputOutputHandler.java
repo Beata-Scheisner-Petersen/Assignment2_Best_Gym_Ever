@@ -84,4 +84,12 @@ public class InputOutputHandler {
         int timeDifference = Period.between(boughtMembershipDate, LocalDate.now()).getYears();
         return timeDifference;
     }
+
+    protected String getCustomerType(int timeDifference) {
+        if (timeDifference == 0) {
+            return "customer";
+        } else {
+            return "former customer";
+        }
+    }
 }
