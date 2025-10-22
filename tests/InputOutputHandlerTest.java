@@ -28,7 +28,7 @@ public class InputOutputHandlerTest {
     @Test
     public void getCustomerTypeTest() {
         ioh.findInFile("Fredrik Berggren");
-        assertTrue(ioh.isMemberType("Fredrik Berggren"));
+        assertEquals("Former customer", ioh.getCustomerType());
     }
 
 }
