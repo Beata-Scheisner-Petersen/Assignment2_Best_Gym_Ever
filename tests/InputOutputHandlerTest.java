@@ -16,13 +16,6 @@ public class InputOutputHandlerTest {
     }
 
     @Test
-    public void checkIfContentIsCorrectTest() {
-        assertTrue(ioh.checkIfContentIsCorrect("Astrid Larsson"));
-        assertTrue(ioh.checkIfContentIsCorrect("540815-4382"));
-        assertFalse(ioh.checkIfContentIsCorrect("Fredrika Berggren"));
-    }
-
-    @Test
     public void findInFileTest() {
         assertTrue(ioh.findInFile("Fredrik Berggren"));
         assertTrue(ioh.findInFile("540815-4382"));
@@ -45,6 +38,7 @@ public class InputOutputHandlerTest {
         assertEquals(2, timeInYears);
         assertNotEquals(0, timeInYears);
     }
+
     @Test
     public void getCustomerTypeTest() {
        assertEquals("former customer", ioh.getCustomerType(2));

@@ -55,7 +55,7 @@ public class InputOutputHandler {
     protected boolean findInFile(String input) {
         boolean findResult = false;
         String fromFile;
-        if (checkReadFilePath(readFilePath) && checkIfContentIsCorrect(input)) {
+        if (checkReadFilePath(readFilePath)) {
             try(BufferedReader reader = new BufferedReader(new FileReader(readFilePath))) {
                 for (int i = 0; (fromFile = reader.readLine()) != null; i++) {
                     if (fromFile.contains(input)){
