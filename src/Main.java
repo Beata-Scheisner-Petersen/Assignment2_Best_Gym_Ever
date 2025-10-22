@@ -16,6 +16,11 @@ void main() {
        }
    }
    if ((!temp.equals("q")) && ioh.findInFile(input)) {
-       //
+       // Todo
+       // Få ut medlemstyp
+       //skriva till fil
+       // skriva ut
+   } else {
+       System.out.printf("%s don't exist in the register and is unauthorized", input);
    }
 }
