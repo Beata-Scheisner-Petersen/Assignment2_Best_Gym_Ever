@@ -67,4 +67,15 @@ public class InputOutputHandlerTest {
         ioh.findInFile("680127-2300");
         assertTrue(ioh.didItWriteToFile());
     }
+
+    @Test
+    public void printTest() {
+        ioh.findInFile("Fredrik Berggren");
+        String testExample = String.format("""
+                Name: %s
+                CustomerType: %s
+                MemberType: %s \n
+                """, ioh.getMemberInfo().get(0), ioh.getCustomerType(ioh.timeDiff()), ioh.getMemberInfo().get(7));
+        assertEquals(testExample, ioh.print());
+    }
 }
