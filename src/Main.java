@@ -1,6 +1,6 @@
 void main() {
     User user = new User();
-    InputOutputHandler ioh = new InputOutputHandler();
+    InputOutputHandler ioh = new InputOutputHandler(); // kolla varför gammalt skrivs ut igen!
     String input = null;
     String temp;
     while (true) {
@@ -10,11 +10,13 @@ void main() {
             break;
         } else if (user.isValidInput(temp)) {
             input = temp;
+            temp = null;
         }
+
         if ((!temp.equals("q")) && ioh.findInFile(input)) {
             String customerType = ioh.getCustomerType(ioh.timeDiff());
             if (customerType.equals("customer")) {
-                // Skriva ut
+                System.out.println(ioh.print());
                 if (ioh.checkIfPathExist()) {
                     String textToAddToFile = ioh.textToFile();
                     if (ioh.didItWriteToFile()) {
@@ -23,7 +25,7 @@ void main() {
                     }
                 }
             } else {
-                System.out.printf("%s is a former customer", ioh.getFindPersonList().get(0));
+                System.out.printf("%s is a former customer", ioh.getMemberInfo().get(0));
             }
         } else {
             System.out.printf("%s don't exist in the register and is unauthorized \n", input);
