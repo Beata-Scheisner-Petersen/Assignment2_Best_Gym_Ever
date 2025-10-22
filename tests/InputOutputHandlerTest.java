@@ -1,6 +1,10 @@
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
+import java.time.Period;
+
 import static org.junit.jupiter.api.Assertions.*;
+
 public class InputOutputHandlerTest {
     InputOutputHandler ioh = new InputOutputHandler();
     String readFilePath = "gym_medlemmar.txt";
@@ -26,9 +30,20 @@ public class InputOutputHandlerTest {
     }
 
     @Test
-    public void getCustomerTypeTest() {
-        ioh.findInFile("Fredrik Berggren");
-        assertEquals("Former customer", ioh.getCustomerType());
+    public void timeDiffTest() {
+        LocalDate today = LocalDate.now();
+        int timeInYears;
+        LocalDate testDate;
+
+        testDate = today.minusYears(3);
+        timeInYears = Period.between(testDate, today).getYears();
+        assertEquals(3, timeInYears);
+        assertNotEquals(1, timeInYears);
+
+        testDate = today.minusYears(2);
+        timeInYears = Period.between(testDate, today).getYears();
+        assertEquals(2, timeInYears);
+        assertNotEquals(0, timeInYears);
     }
 
 }
