@@ -71,7 +71,8 @@ public class InputOutputHandler {
         }
     }
 
-    protected String printToFile(String input) {
+    @SuppressWarnings("StringBufferReplaceableByString")
+    protected String printToFile() {
         StringBuilder builder = new StringBuilder();
         builder.append(findPersonList.get(0)).append(";");
         builder.append(findPersonList.get(3)).append(";");
