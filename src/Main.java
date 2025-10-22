@@ -12,16 +12,19 @@ void main() {
             input = temp;
         }
         if ((!temp.equals("q")) && ioh.findInFile(input)) {
-            // Todo
-            // Få ut medlemstyp
             String customerType = ioh.getCustomerType(ioh.timeDiff());
             if (customerType.equals("customer")) {
-                //
+                // Skriva ut
+                if (ioh.checkIfPathExist()) {
+                    String textToAddToFile = ioh.textToFile();
+                    if (ioh.didItWriteToFile()) {
+                        IO.println("Printing to file was successful");
+                        break;
+                    }
+                }
             } else {
-                //
+                System.out.printf("%s is a former customer", ioh.getFindPersonList().get(0));
             }
-            //skriva till fil
-            // skriva ut
         } else {
             System.out.printf("%s don't exist in the register and is unauthorized \n", input);
         }
