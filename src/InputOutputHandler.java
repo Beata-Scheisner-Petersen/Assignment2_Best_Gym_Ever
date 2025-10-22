@@ -30,28 +30,6 @@ public class InputOutputHandler {
         return pathValid;
     }
 
-    protected boolean checkIfContentIsCorrect(String input) {
-        boolean checkValid = false;
-        String temp;
-        try(BufferedReader br = new BufferedReader(new FileReader(readFilePath))) {
-            while ((temp = br.readLine()) != null) {
-                if (temp.contains(input)) {
-                    checkValid = true;
-                    break;
-                }
-            }
-        } catch (FileNotFoundException eFile) {
-            IO.println("File not found");
-        } catch (IOException eIO) {
-            IO.println("IO error");
-            eIO.printStackTrace();
-        } catch (Exception e) {
-            IO.println("Error:");
-            e.printStackTrace();
-        }
-        return checkValid;
-    }
-
     protected boolean findInFile(String input) {
         boolean findResult = false;
         String fromFile;
@@ -91,5 +69,13 @@ public class InputOutputHandler {
         } else {
             return "former customer";
         }
+    }
+
+    protected String printToFile(String input) {
+        StringBuilder builder = new StringBuilder();
+        builder.append(findPersonList.get(0)).append(";");
+        builder.append(findPersonList.get(3)).append(";");
+        builder.append(LocalDate.now());
+        return builder.toString();
     }
 }
