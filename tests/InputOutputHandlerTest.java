@@ -45,5 +45,10 @@ public class InputOutputHandlerTest {
         assertEquals(2, timeInYears);
         assertNotEquals(0, timeInYears);
     }
-
+    @Test
+    public void getCustomerTypeTest() {
+        ioh.findInFile("Fredrik Berggren");
+       int diff = ioh.timeDiff();
+       assertEquals("former customer", ioh.getCustomerType());
+    }
 }
