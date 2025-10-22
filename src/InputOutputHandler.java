@@ -72,7 +72,7 @@ public class InputOutputHandler {
     }
 
     @SuppressWarnings("StringBufferReplaceableByString")
-    protected String printToFile() {
+    protected String textToFile() {
         StringBuilder builder = new StringBuilder();
         builder.append(findPersonList.get(0)).append(";");
         builder.append(findPersonList.get(3)).append(";");
@@ -98,11 +98,11 @@ public class InputOutputHandler {
         return filePathExist;
     }
 
-    protected boolean didItWroteToFile() {
+    protected boolean didItWriteToFile() {
         boolean writingSuccess = false;
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(writeToFile, true))) {
             if (writeToFile != null) {
-                writer.write(printToFile());
+                writer.write(textToFile());
                 writer.newLine();
                 writingSuccess = true;
             }
