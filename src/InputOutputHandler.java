@@ -77,17 +77,6 @@ public class InputOutputHandler {
         builder.append(findPersonList.get(0)).append(";");
         builder.append(findPersonList.get(3)).append(";");
         builder.append(LocalDate.now());
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter(writeToFile))) {
-            //
-        } catch (FileNotFoundException eFile) {
-            IO.println("File not found");
-        } catch (IOException eIO) {
-            IO.println("Error: IO");
-            eIO.printStackTrace();
-        } catch (Exception e) {
-            IO.println("Error:");
-            e.printStackTrace();
-        }
         return builder.toString();
     }
     protected boolean checkIfPathExist() {
@@ -107,5 +96,26 @@ public class InputOutputHandler {
             }
         }
         return filePathExist;
+    }
+
+    protected boolean didItWroteToFile() {
+        boolean writingSuccess = false;
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(writeToFile, true))) {
+            if (writeToFile != null) {
+                writer.write(printToFile());
+                writer.newLine();
+                writingSuccess = true;
+            }
+        } catch (FileNotFoundException eFile) {
+            IO.println("File not found");
+        } catch (IOException eIO) {
+            IO.println("IO error:");
+            eIO.printStackTrace();
+        } catch (Exception e) {
+            IO.println("Error:");
+            e.printStackTrace();
+        }
+
+        return writingSuccess;
     }
 }
