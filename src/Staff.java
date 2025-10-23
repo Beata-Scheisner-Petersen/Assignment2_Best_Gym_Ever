@@ -1,18 +1,20 @@
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-public class User {
+public class Staff {
     private InputOutputHandler ioh = new InputOutputHandler();
 
     public boolean isValidInput(String input) {
         boolean isValid = false;
-        if (isContainingInvalidCharacters(input)) {
+        if (input.isBlank()) {
+            IO.println("Error: input cant be blank");
+        } else if (isContainingInvalidCharacters(input)) {
             IO.println("Error: input contains invalid characters!");
-        } else if ((isContainingNumber(input)) && isContainsHyphen(input) && isHyphenOnRightPlace(input) && isHyphenOnlyOneOf(input)
-            && isPersonNumberRightAmountNumbers(input)) {
-            if (personNrIsOnlyNumbers(input)) {
+        } else if (isContainingNumber(input) ) {
+            if ((((isPersonNumberRightAmountNumbers(input)) && isContainsHyphen(input)) && isHyphenOnRightPlace(input)) && isHyphenOnlyOneOf(input)
+                    && personNrIsOnlyNumbers(input)) {
                 isValid = true;
             } else {
-                IO.println("person number contain things that is not number or -");
+                IO.println("person number have invalid format or contains invalid character");
             }
         } else {
             if (isNameOnlyContainsLetter(input)) {
@@ -30,7 +32,16 @@ public class User {
     }
     protected boolean isContainingNumber(String input) {
         String containsNumber = "[0123456789]";
-        return containsNumber.indexOf(input.charAt(0)) >= 0;
+        boolean onlyNumbers = false;
+        try {
+            onlyNumbers = containsNumber.indexOf(input.charAt(0)) >= 0;
+        } catch (StringIndexOutOfBoundsException eOutOfBound) {
+            IO.println("Error can't be null/blank");
+        } catch (Exception e) {
+            IO.println("Error:");
+            e.printStackTrace();
+        }
+        return onlyNumbers;
     }
     protected boolean isContainsHyphen(String input) {
         return input.contains("-");

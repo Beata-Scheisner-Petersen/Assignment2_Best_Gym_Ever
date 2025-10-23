@@ -13,9 +13,10 @@ public class InputOutputHandler {
     public List<String> getMemberInfo() {
         return findPersonList;
     }
+
     protected boolean checkReadFilePath(String readFilePath) {
         boolean pathValid = false;
-        try(BufferedReader br = new BufferedReader(new FileReader(readFilePath))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(readFilePath))) {
             pathValid = true;
         } catch (FileNotFoundException eFile) {
             IO.println("File not found");
@@ -28,16 +29,25 @@ public class InputOutputHandler {
         }
         return pathValid;
     }
-    protected boolean findInFile(String input) {
-        boolean findResult = false;
-        String fromFile;
+
+    protected String findInFile(String input) {
+        String output = "not found";
+        String fromFile = "";
+        String tempInput = "";
+        String tempFromFile = "";
+
         if (checkReadFilePath(readFilePath)) {
-            try(BufferedReader reader = new BufferedReader(new FileReader(readFilePath))) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(readFilePath))) {
                 for (int i = 0; (fromFile = reader.readLine()) != null; i++) {
-                    if (fromFile.contains(input)){
-                        findPersonList = new ArrayList<>(List.of(fromFile.split(";")));
-                        findResult = true;
-                        break;
+                    if (i != 0) {
+                        tempFromFile = fromFile.toLowerCase();
+                        tempInput = input.toLowerCase();
+
+                        if (tempFromFile.contains(tempInput)) {
+                            findPersonList = new ArrayList<>(List.of(fromFile.split(";")));
+                            output = input;
+                            break;
+                        }
                     }
                 }
             } catch (FileNotFoundException eFile) {
@@ -52,20 +62,23 @@ public class InputOutputHandler {
         } else {
             IO.println("Something went wrong when trying to read the file");
         }
-        return findResult;
+        return output;
     }
+
     protected int timeDiff() {
         LocalDate boughtMembershipDate = LocalDate.parse(findPersonList.get(5));
         int timeDifference = Period.between(boughtMembershipDate, LocalDate.now()).getYears();
         return timeDifference;
     }
+
     protected String getCustomerType(int timeDifference) {
         if (timeDifference == 0) {
-            return "customer\n";
+            return "customer";
         } else {
-            return "former customer\n";
+            return "former customer";
         }
     }
+
     @SuppressWarnings("StringBufferReplaceableByString")
     protected String textToFile() {
         StringBuilder builder = new StringBuilder();
@@ -74,6 +87,7 @@ public class InputOutputHandler {
         builder.append(LocalDate.now());
         return builder.toString();
     }
+
     protected boolean checkIfPathExist() {
         boolean filePathExist = false;
         if (Files.exists(Path.of(writeToFile))) {
@@ -92,9 +106,10 @@ public class InputOutputHandler {
         }
         return filePathExist;
     }
+
     protected boolean didItWriteToFile() {
         boolean writingSuccess = false;
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter(writeToFile, true))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(writeToFile, true))) {
             if (writeToFile != null) {
                 writer.write(textToFile());
                 writer.newLine();
@@ -112,11 +127,12 @@ public class InputOutputHandler {
 
         return writingSuccess;
     }
+
     protected String print() {
         return String.format("""
                 Name: %s
-                CustomerType: %s
-                MemberType: %s \n
+                Customer type: %s
+                Membership type: %s \n
                 """, getMemberInfo().get(0), getCustomerType(timeDiff()), getMemberInfo().get(6));
     }
 }

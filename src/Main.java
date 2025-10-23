@@ -1,35 +1,44 @@
 void main() {
-    User user = new User();
-    InputOutputHandler ioh = new InputOutputHandler(); // kolla varför gammalt skrivs ut igen!
-    String input = null;
+    Staff staff = new Staff();
+    InputOutputHandler ioh = new InputOutputHandler();
     String temp;
+    String customerType = "";
+    String textToAddToFile;
+    Scanner scanner = new Scanner(System.in);
+
     while (true) {
+        String input = null;
+        boolean isCustomer = false;
         System.out.print("Enter name or social security number or q to quit: ");
-        temp = IO.readln().trim();
+        temp = scanner.nextLine().trim();
         if (temp.equals("q")) {
+            IO.println("Exit the program \n");
             break;
-        } else if (user.isValidInput(temp)) {
-            input = temp;
-            temp = null;
         }
 
-        if ((!temp.equals("q")) && ioh.findInFile(input)) {
-            String customerType = ioh.getCustomerType(ioh.timeDiff());
-            if (customerType.equals("customer")) {
-                System.out.println(ioh.print());
-                if (ioh.checkIfPathExist()) {
-                    String textToAddToFile = ioh.textToFile();
-                    if (ioh.didItWriteToFile()) {
-                        IO.println("Printing to file was successful");
-                        break;
-                    }
+        if (staff.isValidInput(temp)) {
+            if (ioh.findInFile(temp).equals(temp)) {
+                input = temp;
+                customerType = ioh.getCustomerType(ioh.timeDiff());
+                if (customerType.equals("customer")) {
+                    isCustomer = true;
+                    System.out.println(ioh.print());
+                } else {
+                    System.out.printf("%s is a former customer \n", ioh.getMemberInfo().get(0));
                 }
             } else {
-                System.out.printf("%s is a former customer", ioh.getMemberInfo().get(0));
+                System.out.printf("%s don't exist in the register and is unauthorized \n", temp);
             }
-        } else {
-            System.out.printf("%s don't exist in the register and is unauthorized \n", input);
+        }
+
+        if (isCustomer) {
+            if (ioh.checkIfPathExist()) {
+                textToAddToFile = ioh.textToFile();
+                if (ioh.didItWriteToFile()) {
+                    IO.println("Printing to file was successful");
+                }
+            }
         }
     }
-
+    scanner.close();
 }
