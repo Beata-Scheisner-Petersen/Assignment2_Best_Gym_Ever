@@ -7,10 +7,10 @@ public class StaffTest {
     Staff staff = new Staff();
 
     @Test
-    public void isContainingNumberTest() {
-        assertFalse(staff.isContainingNumber("Beata Schleisner-Petersen"));
+    public void isIndex0ANumberTest() {
+        assertFalse(staff.isIndex0ANumber("Beata Schleisner-Petersen"));
 
-        assertTrue(staff.isContainingNumber("830214-4785"));
+        assertTrue(staff.isIndex0ANumber("830214-4785"));
     }
 
     @Test

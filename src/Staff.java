@@ -9,7 +9,7 @@ public class Staff {
             IO.println("Error: input cant be blank");
         } else if (isContainingInvalidCharacters(input)) {
             IO.println("Error: input contains invalid characters!");
-        } else if (isContainingNumber(input) ) {
+        } else if (isIndex0ANumber(input) ) {
             if ((((isPersonNumberRightAmountNumbers(input)) && isContainsHyphen(input)) && isHyphenOnRightPlace(input)) && isHyphenOnlyOneOf(input)
                     && personNrIsOnlyNumbers(input)) {
                 isValid = true;
@@ -30,7 +30,7 @@ public class Staff {
         Matcher matcherForSpecialCharacters = patternForSpecialCharacters.matcher(input);
         return matcherForSpecialCharacters.find();
     }
-    protected boolean isContainingNumber(String input) {
+    protected boolean isIndex0ANumber(String input) {
         String containsNumber = "[0123456789]";
         boolean onlyNumbers = false;
         try {

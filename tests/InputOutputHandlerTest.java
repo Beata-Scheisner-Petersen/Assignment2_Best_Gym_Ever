@@ -19,7 +19,7 @@ public class InputOutputHandlerTest {
     public void findInFileTest() {
         assertEquals("Fredrik Berggren", ioh.findInFile("Fredrik Berggren"));
         assertEquals("540815-4382", ioh.findInFile("540815-4382"));
-        assertNotEquals(540815-4382, ioh.findInFile("540815-b382"));
+        assertNotEquals("540815-4382", ioh.findInFile("540815-b382"));
     }
 
     @Test
