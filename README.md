@@ -1,9 +1,9 @@
 # Project: Best Gym Ever.
 
-### Description:
+### Description
 I am in my first year of the Java Developer program at Nackademin. This is the second assignment in the Object-Oriented Programming course.
 
-### Parts of the task description:
+### Task
 The gym “Best Gym Ever” has a problem. Their data system has crashed and cannot be used. The consultant who built the system is away and cannot come to fix it for several months. In addition, someone has posted online that Best Gym Ever’s system is 
 broken and that everyone can come there to train for free, which has caused quite a few shady characters to show up.
 
@@ -21,7 +21,18 @@ program where one enters a customer’s personal ID number or name when the pers
 | Version control | Git + GutHub |
 
 ## Installation
-Install my-projectby getting repository
-1. Clone the [repository](https://github.com/Beata-Scheisner-Petersen/Assignment2_Best_Gym_Ever.git)
-2. Open in your IDE (for example IntelliJ or Visual Code)
-3. Run Main.java
+Install my-project by getting repository
+
+1. Clone the repository
+2. Use commando in Git Bash or new project in your IDE
+3. Run `Main.java in your IDE
+
+## FAQ
+
+#### How do I make a clone by Git Bash commando?
+
+You can find all the information you need [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+
+#### How do I make a clone in my IDE?
+
+You can find all the information you need [here](https://blog.jetbrains.com/idea/2020/10/clone-a-project-from-github/) (for IntelliJ)
