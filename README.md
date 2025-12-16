@@ -13,19 +13,15 @@ program where one enters a customer’s personal ID number or name when the pers
 - The customer is a former member (if the annual fee was paid more than a year ago).
 - The person is not in the file and therefore has never been a member and is unauthorized.
 
-## Authors
-- [@Beata Schleisner-Petersen](https://github.com/Beata-Scheisner-Petersen)
-- [@Valeria Kostova](https://github.com/valeriakostova-source)
-
 ## Tech stack
 | Layer | Technology |
 | --- | --- |
 | Backend | Java |
-| Frontend | JFrame |
 | IDE | IntelliJ |
 | Version control | Git + GutHub |
 
 ## Installation
-1. Clone the repository `git clone https://github.com/Beata-Scheisner-Petersen/Assignment1.git`
+Install my-projectby getting repository
+1. Clone the [repository](https://github.com/Beata-Scheisner-Petersen/Assignment2_Best_Gym_Ever.git)
 2. Open in your IDE (for example IntelliJ or Visual Code)
-3. Run `Main.java`
+3. Run Main.java
